@@ -1,9 +1,27 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>mon</ion-title>
-  </ion-toolbar>
+ 
 </ion-header>
 
-<ion-content>
+
+<ion-content padding>
+
+
+
+  <ion-list>
+  
+
+  
+    <ion-item *ngFor="let timetable of timetable">
+     
+      <ion-label>
+      <h2>{{timetable.course_name}}</h2> 
+      <h2>{{timetable.teacher_name}}</h2>
+      <h6>{{timetable.start_time}} | {{timetable.end_time}} |  {{timetable.location}}  | {{timetable.room}}</h6>   
+      <h4></h4>
+      </ion-label>
+    </ion-item>
+
+</ion-list>
+
 
 </ion-content>

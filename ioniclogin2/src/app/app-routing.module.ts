@@ -43,6 +43,14 @@ const routes: Routes = [
     path: 'wed',
     loadChildren: () => import('./wed/wed.module').then( m => m.WedPageModule)
   },
+  {
+    path: 'thu',
+    loadChildren: () => import('./thu/thu.module').then( m => m.ThuPageModule)
+  },
+  {
+    path: 'fri',
+    loadChildren: () => import('./fri/fri.module').then( m => m.FriPageModule)
+  },
  
 ];
 

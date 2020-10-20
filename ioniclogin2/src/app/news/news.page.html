@@ -11,13 +11,18 @@
 
 
 
-      <ion-list *ngFor="let items of items">
+      <ion-list>
+      
+
+      
+        <ion-item *ngFor="let items of items">
          
+          <ion-label>
           <h2>{{items.title}}</h2> 
           <h6>{{items.created_at}}</h6>   
           <h4>{{items.text}}</h4>
-          <hr>
-        
+          </ion-label>
+        </ion-item>
     
   </ion-list>
 

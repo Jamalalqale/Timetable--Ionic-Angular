@@ -52,6 +52,29 @@ const routes: Routes = [
         },
 
         {
+          path: 'thu',
+          children:
+            [
+              {
+                path: '',
+                loadChildren: '../thu/thu.module#ThuPageModule'
+              }
+            ]
+        },
+
+
+        {
+          path: 'fri',
+          children:
+            [
+              {
+                path: '',
+                loadChildren: '../fri/fri.module#FriPageModule'
+              }
+            ]
+        },
+
+        {
           path: '',
           redirectTo: '/timetable/mon',
           pathMatch: 'full'
