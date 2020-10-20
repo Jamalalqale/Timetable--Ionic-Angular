@@ -14,9 +14,16 @@
     <ion-item *ngFor="let timetable of timetable">
      
       <ion-label>
-      <h2>{{timetable.course_name}}</h2> 
-      <h2>{{timetable.teacher_name}}</h2>
-      <h6>{{timetable.start_time}} | {{timetable.end_time}} |  {{timetable.location}}  | {{timetable.room}}</h6>   
+
+        <ion-text color="danger">
+      <h2 class="my-label">{{timetable.course_name}}</h2> 
+    </ion-text>
+      <small>{{timetable.teacher_name}}</small>
+
+      <br>
+
+      <small>{{timetable.start_time}} | {{timetable.end_time}} |  {{timetable.location}}  | {{timetable.room}}</small>   
+
       <h4></h4>
       </ion-label>
     </ion-item>
