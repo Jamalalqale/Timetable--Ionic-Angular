@@ -3,6 +3,7 @@ import { ToastController } from '@ionic/angular';
 import { PostProvider } from '../providers/post-provider';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/Storage';
+import { HAMMER_LOADER } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-register',
@@ -52,21 +53,14 @@ export class RegisterPage implements OnInit {
         aksi: 'register'
       };
 
-      this.postPvdr.postData(body, 'proses-api.php').subscribe(async data =>{
-        var alertpesan = data.msg;
-        if(data.success){
+      this.postPvdr.postData(body, 'proses-api.php').subscribe((res:any) =>{
+     
+        if(res.success){
           this.router.navigate(['/login']);
-          const toast = await this.toastCtrl.create({
-            message: 'Register succesful',
-            duration: 3000
-          });
-          toast.present();
+          this.presentToast(res.msg);
+          
         }else{
-          const toast = await this.toastCtrl.create({
-            message: alertpesan,
-            duration: 3000
-          });
-          toast.present();
+          this.presentToast("timeout");
         }
       });
 
@@ -76,7 +70,15 @@ export class RegisterPage implements OnInit {
 
 
 
-  
+  async presentToast(a){
+
+    const toast = await this.toastCtrl.create({
+      message: 'Register succesful',
+      duration: 3000
+    });
+    toast.present();
+
+  }
 
 
 
