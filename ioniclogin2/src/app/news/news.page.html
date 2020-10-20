@@ -1,0 +1,25 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>News</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content padding>
+
+
+
+      <ion-list *ngFor="let items of items">
+         
+          <h2>{{items.title}}</h2> 
+          <h6>{{items.created_at}}</h6>   
+          <h4>{{items.text}}</h4>
+          <hr>
+        
+    
+  </ion-list>
+
+
+</ion-content>
