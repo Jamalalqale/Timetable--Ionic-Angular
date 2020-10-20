@@ -32,15 +32,15 @@
 
   elseif($postjson['aksi']=='getdata'){
   	$data = array();
-  	$query = mysqli_query($mysqli, "SELECT * FROM master_customer ORDER BY customer_id DESC LIMIT $postjson[start],$postjson[limit]");
+  	$query = mysqli_query($mysqli, "SELECT * FROM users ");
 
   	while($row = mysqli_fetch_array($query)){
 
   		$data[] = array(
-  			'customer_id' => $row['customer_id'],
-  			'name_customer' => $row['name_customer'],
-  			'desc_customer' => $row['desc_customer'],
-  			'created_at' => $row['created_at'],
+  			'user_id' => $row['user_id'],
+  			'username' => $row['username'],
+  			'password' => $row['password']
+
 
   		);
   	}
@@ -99,6 +99,41 @@
 
     echo $result;
   }
+//
+
+  elseif($postjson['aksi']=="json"){
+    //$password = md5($postjson['password']);
+    $query = mysqli_query($mysqli, "SELECT * FROM users ");
+    $check = mysqli_num_rows($query);
+
+    if($check>0){
+      $data = mysqli_fetch_array($query);
+      $datauser = array(
+        'user_id' => $data['user_id'],
+        'username' => $data['username'],
+        'password' => $data['password']
+      );
+
+ 
+        $result = json_encode(array('success'=>true, 'result'=>$datauser));
+      
+
+    echo $result;
+  }
+
+
+
+
+
+  }
+
+
+
+
+
+
+
+
 
   elseif($postjson['aksi']=="register"){
     $password = md5($postjson['password']);
