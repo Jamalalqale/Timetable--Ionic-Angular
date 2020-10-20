@@ -4,6 +4,7 @@ import { PostProvider } from '../providers/post-provider';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/Storage';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -13,123 +14,68 @@ export class LoginPage implements OnInit {
   
   username: string;
   password: string;
+  public x: string;
+
+
+  public homePage : number = null;
 
   constructor(
   	private router: Router,
-  	private postPvdr: PostProvider,
+  	public postPvdr: PostProvider,
   	private storage: Storage,
   	public toastCtrl: ToastController
-  ) { }
+  ) 
+  {
+
+   }
 
   ngOnInit() {
+
+
   }
 
+
   async prosesLogin(){
-    if(this.username != "" && this.username != ""){
+    if (this.username != "" && this.username != ""){
       let body = {
         username: this.username,
         password: this.password,
         aksi: 'login'
       };
 
-      this.postPvdr.postData(body, 'proses-api.php').subscribe(async data =>{
-        var alertpesan = data.msg;
-        if(data.success){
-          this.storage.set('session_storage', data.result);
+      this.postPvdr.postData(body, 'proses-api.php').subscribe((data: any) => {
+        
+      console.log(data);
+     
+   
+        if (data.success){
+          //this.storage.set('session_storage', data.result);
           this.router.navigate(['/home']);
-          const toast = await this.toastCtrl.create({
-		    message: 'Login Succesfully.',
-		  	duration: 2000
-		  });
-		  toast.present();
-		  this.username = "";
-		  this.password = "";
-          console.log(data);
+        //  this.presentToast("success");
+
+		  //this.username = "";
+		 // this.password = "";
+       
         }else{
-          const toast = await this.toastCtrl.create({
-		    message: alertpesan,
-		    duration: 2000
-		  });
-    	  toast.present();
+          this.presentToast("somthing wonr");
         }
       });
 
     }else{
-      const toast = await this.toastCtrl.create({
-		message: 'Username or Password Invalid.',
-		duration: 2000
-	  });
-	  toast.present();
+      this.presentToast("invalid user or pass");
     }
   }
 
 
-  insertx(){
-    let data = {
-  
-      username: this.username,
-      
-      password: this.password
-      
-      };
-      
-      let loader = this.loading.create({
-      
-      content: 'Processing please wait…',
-      
-      });
-      
-      loader.present().then(() => {
-      
-      this.http.post('http://localhost:1992/tutorial/server_api/login.php',this.data)
-      
-      .map(view2 => view2.json())
-      
-      .subscribe(view2 => {
-      
-      console.log(view2)
-      
-      loader.dismiss()
-      
-      if(view2=="Your Login success"){
-      
-      let alert = this.alertCtrl.create({
-      
-      title:"CONGRATS",
-      
-      subTitle:(view2),
-      
-      buttons: ['OK']
-      
-      });
-      
-      alert.present();
-      
-      }else
-      
-      {
-      
-      let alert = this.alertCtrl.create({
-      
-      title:"ERROR",
-      
-      subTitle:"Your Login Username or Password is invalid",
-      
-      buttons: ['OK']
-      
-      });
-      
-      alert.present();
-      
-      }
-      
-      });
-      
-      });
-      
-      }
-      
+  async presentToast(a){
 
+    const toast = await this.toastCtrl.create({
+      message: a,
+      duration: 3000
+    });
+    toast.present();
+
+  }
 
       
 
