@@ -43,4 +43,8 @@ export class MonPage implements OnInit {
     });
   }
 
+  course(){
+    this.router.navigate(['/course']);
+  }
+
 }
