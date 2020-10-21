@@ -10,7 +10,7 @@
 
   include "library/config.php";
 
-
+ $postjson = json_decode(file_get_contents('php://input'), true);
 
   	$data = array();
   	$query = mysqli_query($mysqli, "SELECT  timetable.*,courses.name as course_name,courses.credits,teachers.teacher_name
@@ -21,7 +21,7 @@
 		on timetable.teacher_id=teachers.id
 
 
-		WHERE timetable.day='mon'
+		WHERE timetable.day='$postjson[day]'
 		");
 
   	while($row = mysqli_fetch_array($query)){

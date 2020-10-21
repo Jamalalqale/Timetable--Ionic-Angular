@@ -23,7 +23,7 @@ export class MonPage implements OnInit {
   ngOnInit() {
 
     let body = {
-      //username: 'y',
+      day: 'mon',
       //password: 'y',
       //aksi: 'getdata'
     };
