@@ -6,4 +6,58 @@
 
 <ion-content>
 
+
+  
+
+  <ion-item *ngFor="let single_course of single_course">
+     
+    <ion-label>
+
+      <ion-text color="danger">
+        <h2 class="my-label" >{{single_course.course_name}}</h2>
+  </ion-text>
+  
+  <small>{{single_course.credits}} Credits </small>
+  <br>  
+
+    <small>{{single_course.teacher_name}} </small>   
+
+    <h4></h4>
+    </ion-label>
+  </ion-item>
+
+
+
+  <ion-list>
+
+
+    <ion-item *ngFor="let notes of notes">
+     
+      <ion-label>
+
+        
+          <h2>{{notes.note}}</h2>
+
+    
+
+      <small>{{notes.created_at}} </small>   
+
+      <h4></h4>
+      </ion-label>
+    </ion-item>
+
+
+
+
+    <div>
+  
+      <ion-button expand="block" padding color="tertiary" fill="outline" (click)="add_note()">Add Note</ion-button>
+    </div>
+
+
+
+
+</ion-list>
+
+
 </ion-content>
