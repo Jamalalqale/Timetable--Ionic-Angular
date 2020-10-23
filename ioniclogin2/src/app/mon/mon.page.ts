@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { PostProvider } from '../providers/post-provider';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { Storage } from '@ionic/Storage';
 
 @Component({
@@ -11,6 +11,7 @@ import { Storage } from '@ionic/Storage';
 })
 export class MonPage implements OnInit {
   public timetable= [];
+  public x;
   constructor(
 
     private router: Router,
@@ -47,8 +48,20 @@ export class MonPage implements OnInit {
 
   }
 
-  course(){
-    this.router.navigate(['/course']);
+  course(course_id: number){
+
+    //console.log('course_id = ' + course_id);
+
+
+
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        special: course_id
+      }
+    };
+
+    this.router.navigate(['/course'],navigationExtras);
+
   }
 
 }

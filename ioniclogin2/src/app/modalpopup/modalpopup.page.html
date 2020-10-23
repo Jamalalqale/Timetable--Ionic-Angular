@@ -1,0 +1,24 @@
+
+
+<ion-content>
+
+
+<ion-item>
+
+  <ion-label>Add Note</ion-label>
+<ion-button size="small" slot="end" (click)="closeModal()" > close </ion-button>
+
+</ion-item>
+
+
+<ion-item>
+  <ion-textarea [(ngModel)]="note_text_" placeholder="Typr your note..."></ion-textarea>
+</ion-item>
+
+
+<div>
+  <ion-button expand="block" padding color="tertiary" (click)="add_note()">Add</ion-button>
+</div>
+
+
+</ion-content>

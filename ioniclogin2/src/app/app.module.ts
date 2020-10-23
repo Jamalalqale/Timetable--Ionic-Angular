@@ -15,6 +15,11 @@ import {HttpClient} from '@angular/common/http';
 
 import { PostProvider } from './providers/post-provider';
 import { IonicStorageModule } from '@ionic/Storage';
+import { Dialogs } from '@ionic-native/dialogs/ngx';
+import { ModalpopupPageModule } from './modalpopup/modalpopup.module';
+import { IonicStorageModule } from '@ionic/Storage';
+
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,14 +28,16 @@ import { IonicStorageModule } from '@ionic/Storage';
   	BrowserModule,
   	HttpClientModule,
     IonicStorageModule.forRoot(), 
-  	IonicModule.forRoot(), 
-  	AppRoutingModule
+  	IonicModule.forRoot(),  
+    AppRoutingModule,
+    ModalpopupPageModule
   	],
   providers: [
     StatusBar,
     PostProvider,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    Dialogs
   ],
   bootstrap: [AppComponent]
 })

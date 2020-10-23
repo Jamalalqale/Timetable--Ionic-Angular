@@ -49,15 +49,17 @@ export class LoginPage implements OnInit {
      
    
         if (data.success){
-          //this.storage.set('session_storage', data.result);
+          this.storage.set('login_session_json', data.result);
+
+         
           this.router.navigate(['/home']);
-        //  this.presentToast("success");
+         this.presentToast("Successfull Login");
 
 		  //this.username = "";
 		 // this.password = "";
        
         }else{
-          this.presentToast("somthing wonr");
+          this.presentToast("somthing wonrg");
         }
       });
 

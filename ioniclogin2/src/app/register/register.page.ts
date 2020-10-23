@@ -62,6 +62,8 @@ export class RegisterPage implements OnInit {
         }else{
           this.presentToast("timeout");
         }
+
+        
       });
 
     }

@@ -55,6 +55,10 @@ const routes: Routes = [
     path: 'course',
     loadChildren: () => import('./course/course.module').then( m => m.CoursePageModule)
   },
+  {
+    path: 'modalpopup',
+    loadChildren: () => import('./modalpopup/modalpopup.module').then( m => m.ModalpopupPageModule)
+  },
  
 ];
 
