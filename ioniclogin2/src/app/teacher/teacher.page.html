@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>teacher</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+  
+  <div class="ex1">
+     
+    <div class="ion-text-center"   text-center *ngFor="let result of result" >
+
+    <ion-label text-center >
+
+      <img src="{{result.avatar}}"  > 
+ 
+      <ion-text color="danger">
+        <h2 class="my-label" >{{result.teacher_name}}</h2>
+      </ion-text>
+  
+      <small>{{result.position}}</small>
+  
+
+
+
+    </ion-label>
+
+  </div>
+
+</div>
+
+
+
+<p>Courses</p>
+
+
+
+<p>Office Houres</p>
+
+
+
+
+
+</ion-content>

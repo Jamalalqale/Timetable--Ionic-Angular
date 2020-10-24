@@ -17,7 +17,8 @@ import { PostProvider } from './providers/post-provider';
 import { IonicStorageModule } from '@ionic/Storage';
 import { Dialogs } from '@ionic-native/dialogs/ngx';
 import { ModalpopupPageModule } from './modalpopup/modalpopup.module';
-import { IonicStorageModule } from '@ionic/Storage';
+import { UpdatemodalpopupPageModule } from './updatemodalpopup/updatemodalpopup.module';
+
 
 
 
@@ -30,7 +31,8 @@ import { IonicStorageModule } from '@ionic/Storage';
     IonicStorageModule.forRoot(), 
   	IonicModule.forRoot(),  
     AppRoutingModule,
-    ModalpopupPageModule
+    ModalpopupPageModule,
+    UpdatemodalpopupPageModule
   	],
   providers: [
     StatusBar,

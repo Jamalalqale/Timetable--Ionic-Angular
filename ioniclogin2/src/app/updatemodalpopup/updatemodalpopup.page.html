@@ -1,0 +1,27 @@
+
+
+<ion-content>
+
+
+
+  <ion-item  color="danger">
+  
+    <ion-label >Update Note</ion-label>
+  <ion-button   color="light"  size="small" slot="end" (click)="closeModal()" > close </ion-button>
+  
+  </ion-item>
+  
+
+  
+  <ion-item >
+    <ion-textarea [(ngModel)]="note_text" placeholder='Enter your nore here..'   value={{note_text}}  ></ion-textarea>
+  </ion-item>
+  
+  
+  <div>
+    <ion-button expand="block" padding color="danger" (click)="update_note()">Update</ion-button>
+  </div>
+  
+  
+  </ion-content>
+  

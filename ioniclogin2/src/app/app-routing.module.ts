@@ -59,6 +59,14 @@ const routes: Routes = [
     path: 'modalpopup',
     loadChildren: () => import('./modalpopup/modalpopup.module').then( m => m.ModalpopupPageModule)
   },
+  {
+    path: 'updatemodalpopup',
+    loadChildren: () => import('./updatemodalpopup/updatemodalpopup.module').then( m => m.UpdatemodalpopupPageModule)
+  },
+  {
+    path: 'teacher',
+    loadChildren: () => import('./teacher/teacher.module').then( m => m.TeacherPageModule)
+  },
  
 ];
 

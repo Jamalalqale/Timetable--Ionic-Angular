@@ -56,11 +56,28 @@ export class MonPage implements OnInit {
 
     let navigationExtras: NavigationExtras = {
       queryParams: {
-        special: course_id
+        course_id: course_id
       }
     };
 
     this.router.navigate(['/course'],navigationExtras);
+
+  }
+
+
+
+  teacher(teacher_id: number){
+
+
+
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        teacher_id: teacher_id
+      }
+    };
+
+    this.router.navigate(['/teacher'],navigationExtras);
+
 
   }
 

@@ -18,7 +18,7 @@
         <ion-text color="danger">
           <h2 class="my-label" (click)="course(this.timetable.id)">{{timetable.course_name}}</h2>
     </ion-text>
-      <small>{{timetable.teacher_name}}</small>
+      <small (click)="teacher(this.timetable.teacher_id)"  >{{timetable.teacher_name}}</small>
 
       <br>
 

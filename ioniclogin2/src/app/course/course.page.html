@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="danger">
     <ion-title>course</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,11 @@
 
   
 
-  <ion-item *ngFor="let single_course of single_course">
+  <div class="ex1">
      
-    <ion-label>
+    <div class="ion-text-center"   text-center *ngFor="let single_course of single_course" >
+
+    <ion-label text-center >
 
       <ion-text color="danger">
         <h2 class="my-label" >{{single_course.course_name}}</h2>
@@ -24,40 +26,83 @@
 
     <h4></h4>
     </ion-label>
-  </ion-item>
+
+  </div>
+
+</div>
 
 
 
-  <ion-list>
 
 
-    <ion-item *ngFor="let notes of notes">
-     
-      <ion-label>
+    <ion-list>
 
-        
-          <h2>{{notes.note}}</h2>
 
     
+      <!-- Multi-line sliding item with icon options on both sides -->
+      <ion-item-sliding id="item100" *ngFor="let notes of notes" >
+        <ion-item>
+                
+        <ion-label>       
+        <h2>{{notes.note}}</h2>
+        
+          <p> <small>{{notes.created_at}} </small>   </p>
 
-      <small>{{notes.created_at}} </small>   
+        <h4></h4>
+        </ion-label>
 
-      <h4></h4>
-      </ion-label>
-    </ion-item>
 
+        </ion-item>
+             
+        <ion-item-options side="end">
+
+          <ion-item-option color="success">
+            <img src="assets/icon/edit.png"(click)="edit_note(this.notes.id,this.notes.note)">   
+          </ion-item-option>
+
+          <ion-item-option color="danger">
+            <img src="assets/icon/delete.png"(click)="delete_note(this.notes.id)">   
+          </ion-item-option>
+
+        </ion-item-options>
+      </ion-item-sliding>
+    
+
+      
+    </ion-list>
 
 
 
     <div>
   
-      <ion-button expand="block" padding color="tertiary" fill="outline" (click)="add_note()">Add Note</ion-button>
+      <ion-button expand="block" padding color="danger" fill="outline" (click)="add_note()">Add Note</ion-button>
     </div>
 
 
 
 
-</ion-list>
+
+
+
+
+
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </ion-content>
