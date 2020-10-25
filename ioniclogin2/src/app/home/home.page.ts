@@ -37,4 +37,9 @@ profile(){
   this.router.navigate(['/profile']);
 }
 
+
+test(){
+  this.router.navigate(['/home2']);
+}
+
 }

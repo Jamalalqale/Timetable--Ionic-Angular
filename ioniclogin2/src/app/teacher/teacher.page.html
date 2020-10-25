@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>teacher</ion-title>
+  <ion-toolbar color="danger">
+    <ion-title>Teacher</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -17,8 +17,8 @@
 
       <img src="{{result.avatar}}"  > 
  
-      <ion-text color="danger">
-        <h2 class="my-label" >{{result.teacher_name}}</h2>
+      <ion-text >
+        <h2 class="my-label" ><b>{{result.teacher_name}}</b></h2>
       </ion-text>
   
       <small>{{result.position}}</small>
@@ -32,13 +32,167 @@
 
 </div>
 
+<ion-item>
+  <ion-grid>
+<ion-row>
+<ion-col>
+ <p class="danger"  >Courses</p>   
+
+</ion-col>
+
+<ion-col>
 
 
-<p>Courses</p>
+  <div *ngFor="let teacher_courses_result
+  of teacher_courses_result
+  " >
+  
+    
+  <ion-col>
+    <ion-label >
+  
+      <ion-text >
+        <h2 class="my-label" >{{teacher_courses_result.course_name}}</h2>
+      </ion-text>
+  
+      <small>{{teacher_courses_result
+        .credits}} Credits</small>
+  
+    </ion-label>
+    
+  </ion-col>
+
+  
+  </div>
+
+</ion-col>
 
 
 
-<p>Office Houres</p>
+
+</ion-row>
+
+
+
+</ion-grid>
+
+</ion-item>
+
+
+  
+ 
+
+
+
+
+
+<ion-item>
+
+  <ion-grid>
+    <ion-row>
+    <ion-col>
+      <p>Office Houres</p>
+    
+    </ion-col>
+    
+    <ion-col>
+    
+    
+      <div *ngFor="let office_houres_result
+      of office_houres_result
+      " >
+      
+        
+      <ion-col>
+        <ion-label >
+      
+          <ion-text >
+            <h2 class="my-label" >{{office_houres_result
+              .day}}</h2>
+          </ion-text>
+      
+          <small>{{office_houres_result
+            .time}} Credits</small>
+      
+        </ion-label>
+        
+      </ion-col>
+    
+      
+      </div>
+    
+    </ion-col>
+    
+    
+    
+    
+    </ion-row>
+    
+    
+    
+    </ion-grid>
+
+
+
+</ion-item>
+
+
+
+
+<ion-item>
+
+  <ion-grid>
+    <ion-row>
+    <ion-col>
+      <p>Contact</p>
+    
+    </ion-col>
+    
+    <ion-col>
+    
+    
+      <div *ngFor="let result
+      of result
+      " >
+      
+        
+      <ion-col>
+
+        <ion-label >
+      
+          <ion-text>
+            <h2 class="my-label" >{{result
+              .phone}}</h2>
+          </ion-text>
+
+          <ion-text>
+            <h2 class="my-label" >{{result
+              .email}}</h2>
+          </ion-text>
+           
+        </ion-label>
+
+
+
+        
+      </ion-col>
+    
+   
+      
+      </div>
+    
+    </ion-col>
+        
+    
+    </ion-row>
+    
+    
+    
+    </ion-grid>
+
+
+
+</ion-item>
 
 
 

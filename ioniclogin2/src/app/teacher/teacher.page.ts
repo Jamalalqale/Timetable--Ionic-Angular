@@ -18,8 +18,8 @@ export class TeacherPage implements OnInit {
   teacher_id: number;
 
   public result= [];
-
-
+  public office_houres_result= [];
+  public teacher_courses_result= [];
   constructor(
 
 
@@ -47,6 +47,22 @@ export class TeacherPage implements OnInit {
 
   ngOnInit() {
 
+
+    this.getInfo();
+    this.get_oficceHoures();
+    this.get_teacher_courses();
+
+
+
+
+
+
+
+
+  }
+
+
+  getInfo(){
 
     console.log('teacher_id = ' + this.teacher_id);
 
@@ -76,17 +92,71 @@ export class TeacherPage implements OnInit {
     
     });
 
+  }
+  get_oficceHoures(){
+
+    //console.log('teacher_id = ' + this.teacher_id);
+
+    let body = {
+      teacher_id: this.teacher_id
+      //aksi: 'getdata'
+    };
 
 
+    this.postPvdr.postData(body, 'get_office_houres.php').subscribe((data: any) => {
+        
+      console.log(data.result);
+  
 
+      if(data.success){
 
+        this.office_houres_result=data.result;
+      }
+      else
+      {
+        this.presentToast("Something went wrong");
 
+      }
+  
 
-
-
+   
+    
+    });
 
   }
 
+
+  get_teacher_courses(){
+
+    //console.log('teacher_id = ' + this.teacher_id);
+
+    let body = {
+      teacher_id: this.teacher_id
+      //aksi: 'getdata'
+    };
+
+
+    this.postPvdr.postData(body, 'get_teacher_courses.php').subscribe((data: any) => {
+        
+      console.log(data.result);
+  
+
+      if(data.success){
+
+        this.teacher_courses_result=data.result;
+      }
+      else
+      {
+        this.presentToast("Something went wrong");
+
+      }
+  
+
+   
+    
+    });
+
+  }
 
   async presentToast(a){
 
