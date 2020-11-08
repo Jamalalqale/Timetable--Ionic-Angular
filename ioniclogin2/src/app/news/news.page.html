@@ -15,14 +15,29 @@
       
 
       
-        <ion-item *ngFor="let items of items">
-         
-          <ion-label>
-          <h2>{{items.title}}</h2> 
-          <h6>{{items.created_at}}</h6>   
-          <h4>{{items.text}}</h4>
-          </ion-label>
-        </ion-item>
+
+
+        <ion-item *ngFor="let x of items">
+          <div>
+              <div>
+              <h4>  {{x.title}} </h4> 
+              </div>
+              <div>
+                  <div *ngIf="!x.showMore">
+                    <small> {{trimString(x.text,100)}}</small>
+                  </div>
+                  <div *ngIf="x.showMore">
+                    <small>     {{x.text}}   </small>
+                  </div>
+                  <small>  <a (click)="x.showMore = !x.showMore">Show <span [innerHtml]="x.showMore ? 'less' : 'More'">  </span>
+                  </a> </small>
+              </div>
+      
+              <div text-right class="announcement-username">
+              <small>  {{x.created_at}}</small> 
+              </div>
+          </div>
+      </ion-item>
     
   </ion-list>
 

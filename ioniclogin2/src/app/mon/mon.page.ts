@@ -10,8 +10,11 @@ import { Storage } from '@ionic/Storage';
   styleUrls: ['./mon.page.scss'],
 })
 export class MonPage implements OnInit {
+
   public timetable= [];
   public x;
+  public user_id=0;
+  result: any;
   constructor(
 
     private router: Router,
@@ -23,9 +26,36 @@ export class MonPage implements OnInit {
 
   ngOnInit() {
 
+  }
+  ionViewWillEnter() {
+  
+
+    this.bringTimetable();
+
+  }
+
+
+  bringTimetable(){
+
+
+    
+    this.storage.get('login_session_json').then((val) => {
+     
+      this.result = val;   // get data in result variable
+      this.result = JSON.stringify(this.result); // then convert data to json string     
+      this.result = JSON.parse(this.result); // parse json data and pass json string
+    
+      this.user_id=this.result['user_id'];
+
+      console.log('user_id: '+this.user_id); // got result of particular string
+
+
+
+
+
     let body = {
       day: 'mon',
-      //password: 'y',
+      student_id: this.user_id
       //aksi: 'getdata'
     };
 
@@ -43,6 +73,7 @@ export class MonPage implements OnInit {
     
     });
 
+    });
 
 
 
@@ -78,6 +109,72 @@ export class MonPage implements OnInit {
 
     this.router.navigate(['/teacher'],navigationExtras);
 
+
+  }
+
+
+
+  
+  favtable(timetable_id: number){
+
+
+ 
+
+
+
+   
+  this.storage.get('login_session_json').then((val) => {     
+        this.result = val;   // get data in result variable
+    this.result = JSON.stringify(this.result); // then convert data to json string     
+    this.result = JSON.parse(this.result); // parse json data and pass json string
+  
+    this.user_id=this.result['user_id'];
+
+  
+
+  let body = {
+    student_id: this.user_id,
+    timetable_id: timetable_id
+  };
+
+
+  //console.log('timetable_id = ' + timetable_id);
+  //console.log('this.user_id = ' + this.user_id);
+
+  this.postPvdr.postData(body, 'favtable.php').subscribe((data: any) => {
+        
+    console.log(data);
+
+
+    // call the function again to refresh the page
+
+    if (data.success)    
+    this.bringTimetable();
+
+    else
+    this.presentToast("Somthing wonrg");
+
+
+
+ 
+  
+  });
+
+  });
+
+
+  }
+
+
+
+
+  async presentToast(a){
+
+    const toast = await this.toastCtrl.create({
+      message: a,
+      duration: 3000
+    });
+    toast.present();
 
   }
 

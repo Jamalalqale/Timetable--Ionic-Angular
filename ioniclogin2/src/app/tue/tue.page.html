@@ -16,9 +16,9 @@
       <ion-label>
 
         <ion-text color="danger">
-      <h2 class="my-label">{{timetable.course_name}}</h2> 
-    </ion-text>
-      <small>{{timetable.teacher_name}}</small>
+          <h2 class="my-label" (click)="course(this.timetable.id)">{{timetable.course_name}}</h2>
+       </ion-text>
+      <small (click)="teacher(this.timetable.teacher_id)"  >{{timetable.teacher_name}}</small>
 
       <br>
 
@@ -26,9 +26,40 @@
 
       <h4></h4>
       </ion-label>
+
+
+      <div class="row">
+        <div class="col text-right">
+      
+
+          <p *ngIf=" this.timetable.isfav != '0'" >
+
+
+            <img src="assets/icon/favactive.PNG"(click)="favtable(this.timetable.id)">   
+          </p>
+
+          <p *ngIf=" this.timetable.isfav == '0'" >
+
+
+            <img src="assets/icon/favdisactive.PNG"(click)="favtable(this.timetable.id)">   
+          </p>
+
+     </div>
+     </div>
+
+
+     
+
+
     </ion-item>
 
+
+
+
 </ion-list>
+
+
+
 
 
 </ion-content>

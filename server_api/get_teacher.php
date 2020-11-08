@@ -10,7 +10,7 @@
 
 
   	$data = array();
-  	$query = mysqli_query($mysqli, "SELECT * FROM teachers where id=1 ");
+  	$query = mysqli_query($mysqli, "SELECT * FROM teachers where id='$postjson[teacher_id]' ");
 
   	while($row = mysqli_fetch_array($query)){
 

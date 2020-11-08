@@ -13,7 +13,15 @@
  $postjson = json_decode(file_get_contents('php://input'), true);
 
   	$data = array();
-  	$query = mysqli_query($mysqli, "SELECT  timetable.*,courses.name as course_name,courses.credits,teachers.teacher_name
+  	$query = mysqli_query($mysqli,
+
+     "SELECT  timetable.*,
+      courses.name as course_name,
+      courses.credits,
+      teachers.teacher_name,
+
+(IFNULL((SELECT timetable_costume.timetable_id from timetable_costume where timetable_costume.student_id='$postjson[student_id]' and timetable_costume.timetable_id=timetable.id),0)) as isfav
+
   	 FROM timetable
 		join courses
 		on timetable.course_id=courses.id
@@ -36,7 +44,8 @@
   			'end_time' => $row['end_time'],
   			'location' => $row['location'],
   			'room' => $row['room'],
-  			'credits' => $row['credits'],  			
+  			'credits' => $row['credits'], 
+        'isfav' => $row['isfav'],  			
   			'created_at' => $row['created_at']
 
   			
