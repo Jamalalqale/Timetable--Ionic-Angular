@@ -12,4 +12,15 @@ export class TimetablePage implements OnInit {
   ngOnInit() {
   }
 
+
+
+  back_button(){
+
+
+
+
+
+    
+  }
+
 }

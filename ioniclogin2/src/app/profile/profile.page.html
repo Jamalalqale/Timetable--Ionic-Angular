@@ -1,9 +1,86 @@
 <ion-header>
   <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button ></ion-back-button>
+    </ion-buttons>
     <ion-title>Profile</ion-title>
   </ion-toolbar>
 </ion-header>
+  
+  <ion-content [fullscreen]="true">
 
-<ion-content>
+  
+  
+	<div id="container"    *ngFor="let profile_info of profile_info"   >
 
-</ion-content>
+
+		<ion-row>
+			<ion-col>
+			  <img src="assets/icon/logo.png" width="140px" height="140px" >    
+			</ion-col>
+		  </ion-row>
+
+		<ion-row>
+    <ion-col>
+
+      <br><br>
+      
+		<ion-item>
+
+
+      <ion-label >
+
+        <ion-text color="danger">
+          <small class="my-label" >Username</small>
+    </ion-text>
+    
+    <h2>{{profile_info.username}} </h2>
+    
+      </ion-label>
+
+
+
+		  </ion-item> 
+    </ion-col>
+  </ion-row>
+
+
+
+  <ion-row>
+    <ion-col>
+		<ion-item>
+
+
+      <ion-label >
+
+        <ion-text color="danger">
+          <small class="my-label" >Email</small>
+    </ion-text>
+    
+    <h2>{{profile_info.email}} </h2>
+    
+      </ion-label>
+
+
+		  </ion-item>  
+    </ion-col>
+  </ion-row>
+
+
+
+
+
+	
+
+
+	</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  </ion-content>
+  

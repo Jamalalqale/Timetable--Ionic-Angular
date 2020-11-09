@@ -54,8 +54,11 @@
   		);
   	}
 
-  	if($query) $result = json_encode(array('success'=>true, 'result'=>$data));
-  	else $result = json_encode(array('success'=>false));
+  	if($query) 
+
+      $result = json_encode(array('success'=>true, 'result'=>$data));
+  	else
+     $result = json_encode(array('success'=>false));
 
   	echo $result;
 

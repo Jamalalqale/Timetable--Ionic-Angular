@@ -1,3 +1,7 @@
+
+
+
+
 <?php
  header('Access-Control-Allow-Origin: *');
   header("Access-Control-Allow-Credentials: true");
@@ -10,17 +14,17 @@
  $postjson = json_decode(file_get_contents('php://input'), true);
 
   	$data = array();
-  	$query = mysqli_query($mysqli, "SELECT * FROM teachers where id='$postjson[teacher_id]' ");
+  	$query = mysqli_query($mysqli, "SELECT * from students where id=$postjson[student_id]");
 
   	while($row = mysqli_fetch_array($query)){
 
   		$data[] = array(
   			'id' => $row['id'],
-  			'teacher_name' => $row['teacher_name'],
-        'position' => $row['position'],
-  			'email' => $row['email'],
-  			'phone' => $row['phone'],
-        'avatar' => $row['avatar']
+  			'username' => $row['username'], 
+        'email' => $row['email']			 			
+  		
+
+  			
 
 
   		);
@@ -34,3 +38,4 @@
 
 
 ?>
+

@@ -14,7 +14,7 @@
 
   if($postjson['aksi']=='register'){
 
-  	$query = mysqli_query($mysqli, "INSERT INTO users SET
+  	$query = mysqli_query($mysqli, "INSERT INTO students SET
   		username = '$postjson[username]',
   		password = '$postjson[password]',
       status = 'y',
@@ -76,13 +76,13 @@
 
   elseif($postjson['aksi']=="login"){
     //$password = md5($postjson['password']);
-    $query = mysqli_query($mysqli, "SELECT * FROM users WHERE username='$postjson[username]' AND password='$postjson[password]'");
+    $query = mysqli_query($mysqli, "SELECT * FROM students WHERE username='$postjson[username]' AND password='$postjson[password]'");
     $check = mysqli_num_rows($query);
 
     if($check>0){
       $data = mysqli_fetch_array($query);
       $datauser = array(
-        'user_id' => $data['user_id'],
+        'user_id' => $data['id'],
         'username' => $data['username'],
         'password' => $data['password']
       );

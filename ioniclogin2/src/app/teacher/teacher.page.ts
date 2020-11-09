@@ -39,6 +39,8 @@ export class TeacherPage implements OnInit {
     this.route.queryParams.subscribe(params => {
       if (params && params.teacher_id) {
         this.teacher_id = params.teacher_id;// we get the variable from pervious page 
+
+       
       }
     });
 

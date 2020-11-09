@@ -39,11 +39,10 @@ export class LoginPage implements OnInit {
     if (this.username != "" && this.username != ""){
       let body = {
         username: this.username,
-        password: this.password,
-        aksi: 'login'
+        password: this.password
       };
 
-      this.postPvdr.postData(body, 'proses-api.php').subscribe((data: any) => {
+      this.postPvdr.postData(body, 'login.php').subscribe((data: any) => {
         
       console.log(data);
      
